@@ -1,4 +1,5 @@
 package PersonalTetris.src;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
@@ -8,6 +9,24 @@ public class Main {
         System.out.println(tetris.get_totalrows());
         tetris.summon_new_tetrimono();
         System.out.println("-------------\n\n");
-        tetris.move_right(tetris.active_piece);
+        tetris.rotate_right(tetris.active_piece);
+        while(true){
+            Scanner input = new Scanner(System.in);
+            System.out.println("movement: a, s, and d\nrotation:q or r");
+            String response = input.next();
+            if(response.equals("d")){
+                tetris.move_right(tetris.active_piece);
+            }if(response.equals("a")){
+                tetris.move_left(tetris.active_piece);
+            }
+            if(response.equals("s")){
+                tetris.move_down(tetris.active_piece);
+            }
+            if((response.equals("r"))){
+                tetris.rotate_right(tetris.active_piece);
+            }if(response.equals("q")){
+                tetris.rotate_left(tetris.active_piece);
+            }
+        }
     }
 }
